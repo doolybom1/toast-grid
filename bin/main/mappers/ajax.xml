@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springbootBoard.mapper.AjaxMapper">
+	<select id="ajaxList" resultType="springbootBoard.dto.AjaxDTO" parameterType="java.util.HashMap">
+		SELECT *
+		FROM (
+			SELECT ROW_NUMBER() OVER (ORDER BY A.C002) AS ROW_NUM
+					,RTRIM(A.C002) AS user_nm
+					,RTRIM(A.C001) AS user_num
+					,RTRIM(E.C003) AS user_dp_nm
+					,RTRIM(A.C004) AS user_part1
+					,RTRIM(A.C069) AS user_part2
+					,RTRIM(A.C070) AS user_work_jo
+			FROM HPUBLIC00.DBO.T0201 A
+				LEFT OUTER JOIN HSALARY.DBO.T0117 B ON A.C001 = B.C001
+				LEFT OUTER JOIN HPUBLIC00.DBO.TP0902 C ON B.C001 = C.C003
+				LEFT OUTER JOIN HPUBLIC00.DBO.T0102 D ON D.C001 = B.C005
+				LEFT OUTER JOIN HPUBLIC00.DBO.TP0123A E ON E.C001 = D.C001 AND E.C002 = B.C019
+			GROUP BY A.C002, A.C001, E.C003, A.C004, A.C069, A.C070
+		) T1
+		<if test="perPage != ''">
+		WHERE ROW_NUM BETWEEN (CONVERT(INT, #{perPage})*CONVERT(INT, #{page}))-9  AND (CONVERT(INT, #{perPage})*CONVERT(INT, #{page}))
+		</if>
+	</select>
+</mapper>

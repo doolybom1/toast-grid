@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test">
+	<select id="testList_cnt" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+			SELECT COUNT(*) FROM SMF.DBO.TMP_TOAST_LIST
+	</select>
+	
+	<select id="testList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT *
+		FROM (
+			SELECT ROW_NUMBER() OVER (ORDER BY id) AS ROW_NUM
+					,RTRIM(id) AS id
+					,RTRIM(name) AS name
+					,RTRIM(artist) AS artist
+					,RTRIM(release) AS release
+					,RTRIM(type) AS type
+					,RTRIM(type_cd) AS type_cd
+					,RTRIM(genre) AS genre
+					,RTRIM(price) AS price
+			FROM SMF.DBO.TMP_TOAST_LIST
+		) T1
+		<if test="perPage != '' and perPage != null">
+			WHERE ROW_NUM BETWEEN ((CONVERT(INT, #{page})-1)*CONVERT(INT, #{perPage}))+1 AND (CONVERT(INT, #{page})*CONVERT(INT, #{perPage}))
+		</if>
+	</select>
+	
+	<select id="departList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select 
+			RTRIM(C003) AS text,
+			RTRIM(C001+':'+C002) AS value
+		from HPUBLIC00.DBO.TP0123A
+		where C003 != '';
+	</select>
+	
+	<insert id="toastInsert" parameterType="java.util.HashMap">
+		INSERT INTO SMF.DBO.TMP_TOAST_LIST(
+			id
+			,name
+			,artist
+			,release
+			,type
+			,type_cd
+			,genre
+			,price
+		)VALUES(
+			#{id}
+			,#{name}
+			,#{artist}
+			,#{release}
+			,#{type}
+			,#{type_cd}
+			,#{genre}
+			,#{price}
+		)
+	</insert>
+	
+	<update id="toastUpdate" parameterType="java.util.HashMap">
+		UPDATE SMF.DBO.TMP_TOAST_LIST SET
+			name = #{name}
+			,artist = #{artist}
+			,release = #{release}
+			,type = #{type}
+			,type_cd = #{type_cd}
+			,genre = #{genre}
+			,price = #{price}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE FROM SMF.DBO.TMP_TOAST_LIST
+		WHERE id = #{id}
+	</delete>
+</mapper>
