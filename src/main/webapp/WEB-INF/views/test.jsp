@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <!-- <link rel="stylesheet" href="https://uicdn.toast.com/grid/v4.14.0/tui-grid.css" /> -->
 <!-- <script src="https://uicdn.toast.com/grid/v4.14.0/tui-grid.js"></script> -->
@@ -12,20 +13,23 @@
 	type="text/css" />
 <link rel="stylesheet" href="resources/css/tui-time-picker.css"
 	type="text/css" />
+<link rel="stylesheet" href="resources/css/tui-chart.css"
+	type="text/css" />
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="resources/js/tui-code-snippet.js"></script>
 <script src="resources/js/tui-pagination.js"></script>
 <script src="resources/js/tui-time-picker.js"></script>
 <script src="resources/js/tui-date-picker.js"></script>
 <script src="resources/js/tui-grid.js"></script>
+<script src="resources/js/tui-chart-all.js"></script>
 <style>
-html {
-	margin: 0;
-	padding: 0;
+#crud{
+	margin-top: 1rem;
 }
 
+
 #form {
-	display:block;
+	display: block;
 	margin: 0 auto;
 }
 
@@ -49,9 +53,6 @@ h4 {
 	margin: 5px 0;
 }
 
-.preset {
-	margin-bottom: 15px;
-}
 
 .custom p {
 	margin: 5px 0;
@@ -76,41 +77,29 @@ h4 {
 }
 
 .tui-grid-cell-content {
+	font-family: 맑은고딕, Malgun Gothic, dotum, gulim, sans-serif;
 	font-size: 15px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-	overflow: hidden;
+}
+.tui-grid-cell.tui-grid-cell-summary{
+	text-align: center;
 }
 
-.preset {
-	margin-left: 2rem;
-}
 </style>
 </head>
 <body>
 	<div id="depa" value="${depart}"></div>
-		<div id="grid" style="width: 70%">
-			<div style="display: flex;">
-				<div id="crud" style="padding-bottom: 15px;">
-					<h4>CRUD</h4>
-					<button class="btn-theme" onclick="fnBtnCrud('add')">ADD</button>
-					<button class="btn-theme" onclick="fnBtnCrud('create')">CREATE</button>
-					<button class="btn-theme" onclick="fnBtnCrud('update')">UPDATE</button>
-					<button class="btn-theme" onclick="fnBtnCrud('delete')">DELETE</button>
-				</div>
-				<div class="preset">
-					<h4>테마</h4>
-					<button class="btn-theme" data-preset="default">default</button>
-					<button class="btn-theme" data-preset="striped">striped</button>
-					<button class="btn-theme" data-preset="clean">clean</button>
-				</div>
-			</div>
+	<div id="grid" style="width: 100%;">
+		<div class="preset">
+			<h4>테마</h4>
+			<button class="btn-theme" data-preset="default">default</button>
+			<button class="btn-theme" data-preset="striped">striped</button>
+			<button class="btn-theme" data-preset="clean">clean</button>
 		</div>
 		<div id="theme">
-
 			<div class="custom" style="display: none;">
-				<h4>CUSTOM OPTIONS</h4>
 				<p>
 					<textarea id="custom-text">
 						{
@@ -162,17 +151,28 @@ h4 {
 						}
 					</textarea>
 				</p>
-				<p>
-					<button class="btn-custom">APPLY</button>
-				</p>
 			</div>
+			<p>
+				<button style="display: none;" class="btn-custom">APPLY</button>
+			</p>
 		</div>
+	</div>
+	<div id="crud" style="display: inline-block;">
+		<button id="add" class="btn-theme" onclick="fnBtnCrud('add')">ADD</button>
+		<button class="btn-theme" onclick="fnBtnCrud('create')">CREATE</button>
+		<button class="btn-theme" onclick="fnBtnCrud('update')">UPDATE</button>
+		<button class="btn-theme" onclick="fnBtnCrud('delete')">DELETE</button>
+	</div>
+
+
 </body>
 <script src="resources/js/test.js"></script>
+<script src="resources/js/chart.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	var depart = $("#depa").val();
 		callGrid(depart);
+		chart();
 	});
 </script>
 </html>

@@ -15,7 +15,9 @@ function fnBtnCrud(mode) {
 		grid.removeCheckedRows();
 		grid.request('deleteData');
 	}
+	window.location.reload();
 }
+
 
 
 class RowNumberRenderer {
@@ -43,7 +45,6 @@ class RowNumberRenderer {
 
 function callGrid(depart){
 	var departV = depart;
-
 	grid = new tui.Grid({
 		el: document.getElementById('grid'),
 		data: {
@@ -103,7 +104,6 @@ function callGrid(depart){
 					showApplyBtn: true,
 			        showClearBtn: true
 				},
-				
 				align: 'center',
 				sortingType: 'asc',
 		        sortable: true,
@@ -223,15 +223,22 @@ function callGrid(depart){
 			}
 		],
 		summary: {
+			
 			height: 50,
 			position: 'bottom',
 			columnContent: {
+				
 				price: {
 					template: function(valueMap) {
 						return `MAX: ${valueMap.max}	MIN: ${valueMap.min}<br>TOTAL: ${valueMap.sum}	AVG: ${valueMap.avg.toFixed(2)}`;
 					}
+				},
+				id: {
+					template: function(typeFilter) {
+						return `TOTAL: ${typeFilter.filtered.cnt}`;
+					}
 				}
-			}
+			},
 		},
 		columnOptions: {
 		    frozenCount: 2, // 3개의 컬럼을 고정하고
