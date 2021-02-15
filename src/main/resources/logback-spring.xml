@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
+<configuration>
+	<timestamp key="bySecond" datePattern="yyyy.MM.dd HHmmss"/>
+
 	<!-- appenders -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<Pattern>%d %5p [%c] %m%n</Pattern>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
 		</encoder>
 	</appender>
 	
@@ -13,13 +15,30 @@
 		</encoder>
 	</appender>
 	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	          <Append>true</Append>
+	    <!-- 일자별 로그파일 적용 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	   		 <!-- <file>C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/grid/logs/log-${bySecond}.txt</file>  -->
+    		<fileNamePattern>D:/dooly/New_SpringProject/grid/logs/%d{yyyy.MM,aux}/%d{yyyy-MM-dd}.log</fileNamePattern>
+    		<!-- rolling 기준 -->
+    		<maxHistory>60</maxHistory>
+    		<cleanHistoryOnStart>true</cleanHistoryOnStart>
+	    </rollingPolicy>
+	   	<!-- <file>logs/log-${bySecond}.txt</file>  -->
+	    <encoder>
+	      <pattern>%d %5p %logger{35} - %msg%n</pattern>
+	    </encoder>
+  	</appender>
+	
 	<!-- Logger -->
 	<logger name="test" level="DEBUG" appender-ref="console"/>
 	<logger name="jdbc.sqlonly" level="INFO" appender-ref="console-infolog"/>
 	<logger name="jdbc.resultsettable" level="INFO" appender-ref="console-infolog"/>
 	
 	<!-- Root Logger -->
-	<root level="off">
-		<appender-ref ref="console"/>
+	<root level="WARN">
+		<appender-ref ref="FILE"/>
 	</root>
+
 </configuration>

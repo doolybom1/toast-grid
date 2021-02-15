@@ -71,4 +71,56 @@
 		DELETE FROM SMF.DBO.TMP_TOAST_LIST
 		WHERE id = #{id}
 	</delete>
+	
+	
+		<select id="dhtmlxGanttSelect" resultType="java.util.LinkedHashMap" parameterType="java.util.LinkedHashMap">
+			SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+	</select>
+
+	<insert id="dhtmlxGanttCreate" parameterType="java.util.HashMap">
+		INSERT INTO SMF.DBO.GANTT_TASKS(
+				g_text 
+				,start_date
+				,end_date
+				,progress
+				,parent
+				,color
+		)VALUES(
+				#{text}
+				,#{start_date}
+				,#{end_date}
+				,#{progress}
+				,#{parent}
+				,#{color}
+		)
+	</insert>
+	
+	<update id="dhtmlxGanttUpdate" parameterType="java.util.HashMap">
+		UPDATE SMF.DBO.GANTT_TASKS SET
+			g_text = #{text}
+			,start_date =#{start_date}
+			,end_date = #{end_date}
+			,progress = #{progress}
+			,parent = #{parent}
+			,vtype = #{type}
+			,color = #{color}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="dhtmlxGanttDelete" parameterType="java.util.HashMap">
+		DELETE FROM SMF.DBO.GANTT_TASKS
+		WHERE id = #{id}
+	</delete>
+	
+	
+	
 </mapper>
