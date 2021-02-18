@@ -9,12 +9,11 @@
 <title>Month view</title>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="resources/codebase/dhtmlxgantt.js"></script>
-<!-- <script src="resources/dhtmlx/dhtmlxgantt.js?v=7.0.10"></script> -->
-<script src="https://export.dhtmlx.com/gantt/api.js?v=7.0.10"></script>
+<!-- <script src="https://export.dhtmlx.com/gantt/api.js?v=7.0.10"></script> -->
+<script src="resources/codebase/api.js?v=7.0.10"></script>
 <link rel="stylesheet" href="resources/codebase/dhtmlxgantt.css">
-<!-- <link rel="stylesheet" href="resources/dhtmlx/dhtmlxgantt.css?v=7.0.10">-->
 <link rel="stylesheet"
-	href="resources/dhtmlx/controls_styles.css?v=7.0.10">
+	href="resources/codebase/controls_styles.css?v=7.0.10">
 
 <style>
 html, body {
@@ -28,29 +27,61 @@ html, body {
 	background-color: #0ca30a;
 }
 
-
+.gantt_control{
+	text-align: left;
+}
 
 .weekend {
 	background: #ddd;
 }
 
 #search {
-	position: fixed;
+	position: static;
 	top: 0.7rem !important;
 	left: 1rem;
 	padding: 5px;
 	border-radius: 3px;
 	border: 1px solid #D9D9D9;
+	margin-left: 10px;
 }
 
+/*
 .gantt_layout_cell_border_bottom{
-	height: 600px !important;
 	overflow-y: scroll;
 }
 
 div.gantt_grid{
+	overflow: auto;
+}
+
+.gantt_layout_cell.grid_cell{
+	width: auto !important;
+}
+*/
+
+.gantt_last_cell:hover{
+	cursor: pointer;
+}
+
+.gantt_task_progress span{
+	color: white;
+	display: block;
+
+}
+
+/*
+div.gantt_grid{
 	overflow: scroll;
 }
+
+div.gantt_layout_cell{
+	width: auto !important; 
+}
+
+div.gantt_layout_content{
+	height: auto !important;
+}
+*/
 div.gantt_task{
 	overflow: scroll;
 }
@@ -67,12 +98,12 @@ div.gantt_task{
 		<input type="button" value="확대" onclick="zoomIn()">
 	<input type="button" value="축소" onclick="zoomOut()">
 	
-		<input value="EXCEL 출력" type="button" onclick='gantt.exportToExcel({date_format:"yyyy-M-d"})' style='margin: 0 15px;'> 
+		<input value="EXCEL 출력" type="button" onclick='gantt.exportToExcel({date_format:"yyyy-M-d"})' > 
 		<input value="PDF 출력" type="button" onclick='gantt.exportToPDF({header:"<h1>My company</h1>", footer:"<h4>Bottom line</h4>"})'>
 		<input value="PNG 출력" type="button" onclick='gantt.exportToPNG()'>
 	</div>
 
-	<div id="gantt_here"></div>
+	<div id="gantt_here" style="width:100%; height: 100%;"></div>
 <script>
 gantt.plugins({
     fullscreen: true,
@@ -87,7 +118,7 @@ gantt.templates.timeline_cell_class = function (item, date) {
 	}
 };
 
-
+/*
 gantt.config.layout = {
 		css: "gantt_container",
 		cols: [
@@ -107,7 +138,7 @@ gantt.config.layout = {
 			},
 		]
 	};
-
+*/
 	gantt.config.reorder_grid_columns = true;
 	gantt.config.autosize = true;
 	gantt.config.auto_types = true;
@@ -161,6 +192,7 @@ gantt.config.layout = {
 
 	gantt.locale.labels["section_progress"] = "Progress";
 	gantt.locale.labels.section_detail = "Details";
+	gantt.locale.labels.section_description = "작업명";
 	gantt.locale.labels.section_priority = "우선순위"
 	gantt.locale.labels.section_customFiled = "커스텀 필드"
 	gantt.locale.labels.section_period = "기간";
@@ -184,12 +216,14 @@ gantt.config.layout = {
 		},
 		//{ name: "detail" , height:25, type : "textarea" , map_to: "text"},
 		{ name: "customFiled" , height:25, type : "textarea" , map_to: "myField",readonly: true, default_value: "디폴트값"},
+		/*
 		{name:"priority", height:22, map_to:"priority", type:"checkbox", options: [ 
 	        {key:1, label: "High"},                                               
 	        {key:2, label: "Normal"},                                             
 	        {key:3, label: "Low"}                                                 
 	     ]},
-		{ name: "period", type: "time", map_to: "auto", year_range: [2018, 2026] }
+	     */
+		{ name: "period", type: "duration", map_to: "auto", year_range: [2018, 2026] }
 	];
 
 

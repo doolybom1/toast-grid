@@ -9,12 +9,10 @@
 <title>Month view</title>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="resources/codebase/dhtmlxgantt.js"></script>
-<!-- <script src="resources/dhtmlx/dhtmlxgantt.js?v=7.0.10"></script> -->
-<script src="https://export.dhtmlx.com/gantt/api.js?v=7.0.10"></script>
+<script src="resources/codebase/api.js?v=7.0.10"></script>
 <link rel="stylesheet" href="resources/codebase/dhtmlxgantt.css">
-<!-- <link rel="stylesheet" href="resources/dhtmlx/dhtmlxgantt.css?v=7.0.10">-->
 <link rel="stylesheet"
-	href="resources/dhtmlx/controls_styles.css?v=7.0.10">
+	href="resources/codebase/controls_styles.css?v=7.0.10">
 
 <style>
 html, body {
@@ -43,6 +41,7 @@ html, body {
 	border: 1px solid #D9D9D9;
 }
 
+/*
 .gantt_layout_cell_border_bottom{
 	overflow-y: scroll;
 }
@@ -51,8 +50,19 @@ div.gantt_grid{
 	overflow: auto;
 }
 
+.gantt_layout_cell.grid_cell{
+	width: auto !important;
+}
+*/
+
 .gantt_last_cell:hover{
 	cursor: pointer;
+}
+
+.gantt_task_progress span{
+	color: white;
+	display: block;
+
 }
 
 </style>
@@ -73,8 +83,9 @@ div.gantt_grid{
 		<input value="PDF 출력" type="button" onclick='gantt.exportToPDF({header:"<h1>My company</h1>", footer:"<h4>Bottom line</h4>"})'>
 		<input value="PNG 출력" type="button" onclick='gantt.exportToPNG()'>
 	</div>
-	<div id="gantt_here"></div>
+	<div id="gantt_here" style="width:100%; height: 100%;"></div>
 <script>
+
 gantt.plugins({
     marker: true,
 });	
@@ -94,7 +105,7 @@ var colors = [
     {key:"#DC143C", label: "Red"}
 ];
 
-
+/*
 gantt.config.layout = {
 		css: "gantt_container",
 		cols: [
@@ -114,6 +125,8 @@ gantt.config.layout = {
 			},
 		]
 	};
+*/
+	gantt.config.smart_scales = true;
 	gantt.config.reorder_grid_columns = true;
 	gantt.config.autosize = true;
 	gantt.config.auto_types = true;
@@ -139,29 +152,18 @@ gantt.config.layout = {
 			{ unit: "day", step: 1, format: "%j" }
 		];
 
-
-	/*
-	  gantt.$doFilter = function(value){
-	    filterValue = value;
-
-	    gantt.attachEvent("onBeforeTaskDisplay", function(id, task){
-		    if(!filterValue) return true;
-		    var normalizedText = task.text.toLowerCase();
-		    var normalizedValue = filterValue.toLowerCase();
-		    return normalizedText.indexOf(normalizedValue) > -1;
-		  });
-
-	    gantt.attachEvent("onGanttRender", function(){
-		    gantt.$root.querySelector("[data-text-filter]").value = filterValue;
-		  })
-	    gantt.refreshData();
-	  }
-*/
+	// EndDate를 전날값으로 포함
+	function formatEndDate(date, template) {
+		// get 23:59:59 instead of 00:00:00 for the end date
+		return template(new Date(date.valueOf() - 1));
+	}
 	  
 	gantt.config.columns = [
 		 {name:"text", label: "Description" , width:250, tree:true},
 			{ name: "start_date", label: "Start date", align: "center", width: "80"},
-			{ name: "end_date", label: "End date", align: "center", width: "80" },
+			{ name: "end_date", label: "End date", align: "center", width: "80", template: function (task) {
+				return formatEndDate(task.end_date, gantt.templates.date_grid);
+			} },
 			{ name: "duration", align: "center", width: 70, resize: true},
 			//{ name: "progress",align: "center" , label: "Progress", width: "80", tempalte: dateProgress},
 			{ name: "add", width: 44 }
@@ -169,7 +171,8 @@ gantt.config.layout = {
 
 	gantt.locale.labels["section_progress"] = "Progress";
 	gantt.locale.labels.section_detail = "Details";
-	gantt.locale.labels.section_priority = "우선순위";
+	gantt.locale.labels.section_description = "작업명";
+	//gantt.locale.labels.section_priority = "우선순위";
 	gantt.locale.labels.section_customFiled = "커스텀 필드";
 	gantt.locale.labels.section_color = "작업색";
 	gantt.locale.labels.section_period = "기간";
@@ -202,12 +205,16 @@ gantt.config.layout = {
 		},
 		//{ name: "detail" , height:25, type : "textarea" , map_to: "text"},
 		{ name: "customFiled" , height:25, type : "textarea" , map_to: "myField",readonly: true, default_value: "디폴트값"},
+		/*
 		{name:"priority", height:22, map_to:"priority", type:"checkbox", options: [ 
 	        {key:1, label: "High"},                                               
 	        {key:2, label: "Normal"},                                             
 	        {key:3, label: "Low"}                                                 
 	     ]},
-		{ name: "period", type: "time", map_to: "auto", year_range: [2018, 2026] }
+	     */
+		{ name: "period", type: "duration", map_to: "auto", year_range: [2018, 2026], template: function (task) {
+			return formatEndDate(task.end_date, gantt.templates.date_grid);
+		} }
 	];
 
 
@@ -215,14 +222,16 @@ gantt.config.layout = {
 
 	gantt.attachEvent("onAfterTaskDrag", function (id, mode) {
 		var task = gantt.getTask(id);
+		console.log(task);
 		if (mode == gantt.config.drag_mode.progress) {
 			var pr = Math.floor(task.progress * 100 * 10) / 10;
 			gantt.message("<b>"+task.text +"</b>" + " 현재 " + pr + "% 완료됨!");
 		} else {
-			var convert = gantt.date.date_to_str("%F %j");
+			var convert = gantt.date.date_to_str("%Y-%m-%d");
+			//var convert = gantt.date.date_to_str("%F %j");
 			var s = convert(task.start_date);
 			var e = convert(task.end_date);
-			gantt.message("<b>"+task.text +"</b>" + "</br> 시작일 " + s+"일" + "</br> 종료일 " + e+"일");
+			gantt.message("<b>"+task.text +"</b>" + "</br> 시작일 " + s+"일" + "</br> 종료일 " + e +"일");
 		}
 	});
 	gantt.attachEvent("onBeforeTaskChanged", function (id, mode, old_event) {
@@ -415,12 +424,6 @@ gantt.config.layout = {
 			data: ganttData
 		});
 	//showMessage('info');
-	var dp = gantt.createDataProcessor({
-			url: "/dhtmlxGanttData",
-			mode: "POST"
-	});
-
-
 
 	 var filter_data;
 	 var search_box = document.getElementById("search");
@@ -457,8 +460,13 @@ gantt.config.layout = {
 	 	return false;
 	 });
 
-	 change_detector();
-	 	 
+	gantt.createDataProcessor({
+			url: "dhtmlxGanttData",
+			mode: "POST"
+	});
+	 
+
+	change_detector();
 
 	
 </script>

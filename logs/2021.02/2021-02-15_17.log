@@ -1,0 +1,459 @@
+2021-02-15 17:15:07,448 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:15:07,451 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:15:07,451  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:15:07,565  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1007 |이름없는 작업 |2020-11-01 00:00:00.0 |2020-11-03 00:00:00.0 |1.0      |0      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:15:07,569 DEBUG test.dhtmlxGanttSelect - <==      Total: 8
+2021-02-15 17:15:47,140 DEBUG test.dhtmlxGanttDelete - ==>  Preparing: DELETE FROM SMF.DBO.GANTT_TASKS WHERE id = ? 
+2021-02-15 17:15:47,147 DEBUG test.dhtmlxGanttDelete - ==> Parameters: 1007(String)
+2021-02-15 17:15:47,148  INFO jdbc.sqlonly - DELETE FROM SMF.DBO.GANTT_TASKS
+		WHERE id = '1007'
+
+2021-02-15 17:15:47,238 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:15:47,239 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:15:47,239  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:15:47,297  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:15:47,297 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:21:11,387 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:21:11,389 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:21:11,390  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:21:11,429  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:21:11,429 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:21:49,783 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:21:49,785 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:21:49,785  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:21:49,820  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:21:49,820 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:24:02,227 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:24:02,228 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:24:02,228  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:24:02,264  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:24:02,264 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:34:57,477 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:34:57,509 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:34:57,510  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:34:57,573  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:34:57,574 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:35:15,504 DEBUG test.dhtmlxGanttUpdate - ==>  Preparing: UPDATE SMF.DBO.GANTT_TASKS SET g_text = ? ,start_date =? ,end_date = ? ,progress = ? ,parent = ? ,vtype = ? ,color = ? WHERE id = ? 
+2021-02-15 17:35:15,545 DEBUG test.dhtmlxGanttUpdate - ==> Parameters: 이름없는 작업(String), 2021-02-15 00:00:00(String), 2021-02-16 00:00:00(String), (String), 0(String), task(String), #DC143C(String), 1013(String)
+2021-02-15 17:35:15,545  INFO jdbc.sqlonly - UPDATE SMF.DBO.GANTT_TASKS SET
+			g_text = '이름없는 작업'
+			,start_date ='2021-02-15 00:00:00'
+			,end_date = '2021-02-16 00:00:00'
+			,progress = ''
+			,parent = '0'
+			,vtype = 'task'
+			,color = '#DC143C'
+		WHERE id = '1013'
+
+2021-02-15 17:35:15,573 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:35:15,573 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:35:15,574  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:35:15,617  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#DC143C |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:35:15,617 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:35:15,630 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:35:15,630 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:35:15,630  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:35:15,671  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#DC143C |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:35:15,671 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:35:33,229 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:35:33,230 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:35:33,230  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:35:33,270  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#DC143C |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:35:33,270 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:36:14,022 DEBUG test.dhtmlxGanttUpdate - ==>  Preparing: UPDATE SMF.DBO.GANTT_TASKS SET g_text = ? ,start_date =? ,end_date = ? ,progress = ? ,parent = ? ,vtype = ? ,color = ? WHERE id = ? 
+2021-02-15 17:36:14,023 DEBUG test.dhtmlxGanttUpdate - ==> Parameters: 이름없는 작업(String), 2021-02-15 00:00:00(String), 2021-02-16 00:00:00(String), (String), 0(String), task(String), #F0E68C(String), 1013(String)
+2021-02-15 17:36:14,023  INFO jdbc.sqlonly - UPDATE SMF.DBO.GANTT_TASKS SET
+			g_text = '이름없는 작업'
+			,start_date ='2021-02-15 00:00:00'
+			,end_date = '2021-02-16 00:00:00'
+			,progress = ''
+			,parent = '0'
+			,vtype = 'task'
+			,color = '#F0E68C'
+		WHERE id = '1013'
+
+2021-02-15 17:36:14,083 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:36:14,084 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:36:14,084  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:36:14,118  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#F0E68C |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:36:14,118 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:36:14,131 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:36:14,131 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:36:14,131  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:36:14,168  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#F0E68C |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:36:14,168 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:37:43,313 DEBUG test.dhtmlxGanttUpdate - ==>  Preparing: UPDATE SMF.DBO.GANTT_TASKS SET g_text = ? ,start_date =? ,end_date = ? ,progress = ? ,parent = ? ,vtype = ? ,color = ? WHERE id = ? 
+2021-02-15 17:37:43,314 DEBUG test.dhtmlxGanttUpdate - ==> Parameters: 이름없는 작업(String), 2021-02-15 00:00:00(String), 2021-02-16 00:00:00(String), (String), 0(String), task(String), #4B0082(String), 1013(String)
+2021-02-15 17:37:43,314  INFO jdbc.sqlonly - UPDATE SMF.DBO.GANTT_TASKS SET
+			g_text = '이름없는 작업'
+			,start_date ='2021-02-15 00:00:00'
+			,end_date = '2021-02-16 00:00:00'
+			,progress = ''
+			,parent = '0'
+			,vtype = 'task'
+			,color = '#4B0082'
+		WHERE id = '1013'
+
+2021-02-15 17:37:43,336 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:37:43,337 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:37:43,337  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:37:43,377  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#4B0082 |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:37:43,377 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:37:57,928 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:37:57,928 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:37:57,928  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:37:57,967  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#4B0082 |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:37:57,968 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:38:19,510 DEBUG test.dhtmlxGanttUpdate - ==>  Preparing: UPDATE SMF.DBO.GANTT_TASKS SET g_text = ? ,start_date =? ,end_date = ? ,progress = ? ,parent = ? ,vtype = ? ,color = ? WHERE id = ? 
+2021-02-15 17:38:19,511 DEBUG test.dhtmlxGanttUpdate - ==> Parameters: hi(String), 2021-02-15 00:00:00(String), 2021-02-16 00:00:00(String), (String), 0(String), task(String), #4B0082(String), 1013(String)
+2021-02-15 17:38:19,512  INFO jdbc.sqlonly - UPDATE SMF.DBO.GANTT_TASKS SET
+			g_text = 'hi'
+			,start_date ='2021-02-15 00:00:00'
+			,end_date = '2021-02-16 00:00:00'
+			,progress = ''
+			,parent = '0'
+			,vtype = 'task'
+			,color = '#4B0082'
+		WHERE id = '1013'
+
+2021-02-15 17:38:19,549 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:38:19,550 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:38:19,551  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:38:19,590  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |hi      |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#4B0082 |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:38:19,590 DEBUG test.dhtmlxGanttSelect - <==      Total: 7
+2021-02-15 17:38:26,789 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 17:38:26,790 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 17:38:26,790  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 17:38:26,828  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |hi      |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |#4B0082 |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 17:38:26,828 DEBUG test.dhtmlxGanttSelect - <==      Total: 7

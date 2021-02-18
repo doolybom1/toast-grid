@@ -19,10 +19,9 @@
 	          <Append>true</Append>
 	    <!-- 일자별 로그파일 적용 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-	   		 <!-- <file>C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/grid/logs/log-${bySecond}.txt</file>  -->
-    		<fileNamePattern>D:/dooly/New_SpringProject/grid/logs/%d{yyyy.MM,aux}/%d{yyyy-MM-dd}.log</fileNamePattern>
+	   		  <fileNamePattern>C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/grid/logs/%d{yyyy,aux}/%d{MM,aux}/%d{yyyy-MM-dd}.log</fileNamePattern>
+    		<!-- <fileNamePattern>D:/dooly/New_SpringProject/grid/logs/%d{yyyy,aux}/%d{MM,aux}/%d{yyyy-MM-dd_HH}.log</fileNamePattern> -->
     		<!-- rolling 기준 -->
-    		<maxHistory>60</maxHistory>
     		<cleanHistoryOnStart>true</cleanHistoryOnStart>
 	    </rollingPolicy>
 	   	<!-- <file>logs/log-${bySecond}.txt</file>  -->
@@ -37,8 +36,9 @@
 	<logger name="jdbc.resultsettable" level="INFO" appender-ref="console-infolog"/>
 	
 	<!-- Root Logger -->
-	<root level="WARN">
+	<root level="INFO">
 		<appender-ref ref="FILE"/>
+	<!-- <appender-ref ref="console"/>  -->
 	</root>
 
 </configuration>

@@ -1,14 +1,13 @@
 package springbootBoard;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,12 +85,15 @@ public class ToastController {
 		return "dhtmlxGantt";
 	}
 	
-	@RequestMapping(value = "/dhtmlxGanttData" , method = RequestMethod.POST)
-	public ModelAndView dhtmlxGanttCreate(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) String editing, @RequestParam(required = false) String gantt_mode) throws Exception {
+	@RequestMapping(value = "dhtmlxGanttData" , method = RequestMethod.POST)
+	public String dhtmlxGanttCreate(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) String editing, @RequestParam(required = false) String gantt_mode) throws Exception {
 		Map dataMap = DataMap.getDataMap(request);
-		ModelAndView mv = new ModelAndView();
+		
+		//ModelAndView mv = new ModelAndView();
+		
 		
 		System.out.println("데이터확인:" + dataMap);
+		
 		if(dataMap.get("!nativeeditor_status").toString().equals("inserted")) {
 			testService.listControl("dhtmlxGanttCreate", dataMap);
 		}else if(dataMap.get("!nativeeditor_status").toString().equals("updated")) {
@@ -100,8 +102,8 @@ public class ToastController {
 			testService.listControl("dhtmlxGanttDelete", dataMap);
 		};
 		
-		mv.setViewName("redirect:/dhtmlxGantt");
+		//mv.setViewName("redirect:/dhtmlxGantt");
 	
-		return mv;
+		return "redirect:/dhtmlxGantt";
 	}
 }

@@ -1,0 +1,28 @@
+2021-02-15 16:51:52,460 DEBUG test.dhtmlxGanttSelect - ==>  Preparing: SELECT id ,g_text as 'text' ,CONVERT(CHAR(21), start_date, 21) AS start_date ,CONVERT(CHAR(21), end_date, 21) AS end_date ,progress ,parent ,vopen as 'open' ,vtype as 'type' ,color FROM SMF.DBO.GANTT_TASKS 
+2021-02-15 16:51:52,511 DEBUG test.dhtmlxGanttSelect - ==> Parameters: 
+2021-02-15 16:51:52,512  INFO jdbc.sqlonly - SELECT 	id
+					,g_text as 'text'
+					,CONVERT(CHAR(21), start_date, 21) AS start_date
+					,CONVERT(CHAR(21), end_date, 21) AS end_date
+					,progress
+					,parent
+					,vopen as 'open'
+					,vtype as 'type'
+					,color 
+			FROM SMF.DBO.GANTT_TASKS
+
+2021-02-15 16:51:52,607  INFO jdbc.resultsettable - 
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|id   |text    |start_date            |end_date              |progress |parent |open |type    |color   |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+|2    |프로젝트    |2020-11-01 00:00:00.0 |2020-11-04 00:00:00.0 |0.6      |0      |true |task    |        |
+|5    |디자인     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |0      |true |project |#4B0082 |
+|6    |그리기     |2020-11-02 00:00:00.0 |2020-11-03 00:00:00.0 |0.0      |5      |true |task    |        |
+|7    |색칠하기    |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.0      |5      |true |project |        |
+|1004 |테스트     |2020-11-16 00:00:00.0 |2020-11-21 00:00:00.0 |0.1      |7      |true |task    |        |
+|1007 |이름없는 작업 |2020-11-01 00:00:00.0 |2020-11-03 00:00:00.0 |1.0      |0      |true |task    |        |
+|1011 |이름없는 작업 |2020-11-20 00:00:00.0 |2020-11-25 00:00:00.0 |0.0      |0      |true |task    |        |
+|1013 |이름없는 작업 |2021-02-15 00:00:00.0 |2021-02-16 00:00:00.0 |0.0      |0      |true |task    |        |
+|-----|--------|----------------------|----------------------|---------|-------|-----|--------|--------|
+
+2021-02-15 16:51:52,608 DEBUG test.dhtmlxGanttSelect - <==      Total: 8

@@ -33,7 +33,7 @@
 		where C003 != '';
 	</select>
 	
-	<insert id="toastInsert" parameterType="java.util.HashMap">
+	<insert id="toastInsert" parameterType="java.util.HashMap" >
 		INSERT INTO SMF.DBO.TMP_TOAST_LIST(
 			id
 			,name
